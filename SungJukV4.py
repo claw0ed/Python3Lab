@@ -16,19 +16,23 @@ class SungJukService:
         return tot
 
     def getAverage(self, sj):
-        avg = sj.getTotal() / 3
+        avg = sj.getTotal(sj) / 3
         return avg
 
     def getGrade(self, sj):
         grdlist = '가가가가가가미양우수수'
-        var = int(sj.getAverage() / 10)
+        var = int(sj.getAverage(sj) / 10)
         grd = grdlist[var]
         return grd
 
 sjsrv = SungJukService()
 sj1 = SungJukV0('지현', 98, 45, 23)
+
 print(sj1.name)
 print(sj1.kor)
 print(sj1.eng)
 print(sj1.mat)
+
 print(sjsrv.getTotal(sj1))
+print(sjsrv.getAverage(sj1))
+print(sjsrv.getGrade(sj1))

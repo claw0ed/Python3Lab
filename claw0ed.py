@@ -45,3 +45,26 @@ def rouletteLotto():
 
     print(lucky, lotto, prize)
 
+# 성적 데이터 클래스
+class SungJukV0:
+    def __init__(self, name, kor, eng, mat):
+        self.name = name
+        self.kor = kor
+        self.eng = eng
+        self.mat = mat
+
+# 성적 처리용 클래스
+class SungJukService:
+    def getTotal(self, sj):
+        tot = sj.kor + sj.eng + sj.mat
+        return tot
+
+    def getAverage(self, sj):
+        avg = sj.getTotal(sj) / 3
+        return avg
+
+    def getGrade(self, sj):
+        grdlist = '가가가가가가미양우수수'
+        var = int(sj.getAverage(sj) / 10)
+        grd = grdlist[var]
+        return grd
