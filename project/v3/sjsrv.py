@@ -28,6 +28,9 @@ class SungJukService:
 
    # 상세 성적데이터 조회
    def getOneSungJuk(self, no):
+       if no > len(self.sjdb) or no < 0:
+           return '\ 잘못된 값 입력!!'
+
        result = ''
        for sj in self.sjdb: # sjdb 에서 성적데이터를 하나씩 순환
            if sj.sjno == no: # 만일 학생번호와 찾는번호가 일치하면
@@ -37,5 +40,13 @@ class SungJukService:
        return result
 
    # 성적데이터 삭제
+   def modifySungJuk(self, sj):
+       self.computeSungJuk(sj) # 성적 재계산
+       self.sjdb[ int(sj.sjno)-1 ] = sj # 성적 데이터 수정
+
+       return self.sjdb[int(sj.sjno)-1].to_str() # 수정된 데이터 확인
+
+   # 성적데이터 삭제
    def removeSungJuk(self, no):
        self.sjdb.pop(no-1)
+

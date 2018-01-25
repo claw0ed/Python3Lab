@@ -71,7 +71,22 @@ class SungJukV3Main:
 
 
    def updateSungJuk(self):
-       pass
+       no = input('수정할 성적번호를 입력하세요\n>>')
+
+       str_list = []
+       str_list.append('\n\n수정할 성적데이터를 입력하세요')
+       str_list.append('\n데이터 입력순서는 이름/국어/영어/수학 입니다')
+       str_list.append('\n예)수지 78 64 98')
+       print(''.join(str_list))
+
+       n, k, e, m = input('').split()
+
+       sj = sjvo.SungJuk(n, int(k), int(e), int(m))
+       sj.sjno = int(no) # 수정할 번호 설정
+
+       self.sjsrv.modifySungJuk(sj)
+
+       print('\n\n수정 완료!!\n\n')
 
    def deleteSungJuk(self):
        no = input('삭제할 성적번호를 입력하세요\n')
