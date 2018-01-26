@@ -265,3 +265,32 @@ print(z) # 요소는 모두 3개
 z.add(1) # 의미없는 코드
 print(z) # 어쨌든 3개
 
+def myRange(start, end, hop = 1):
+    retVal = start
+
+    while retVal <= end:
+        yield retVal
+        retVal += hop
+
+hap =0
+for i in myRange(1,5,2): # 결과 : 9 # 종료값이 포함된 range 함수 작성
+                         # 결국, 리스트 형태의 값이 출력
+#for i in range(1,5,2): # i : 1, 3 # 결과 : 4
+#for i in [1,3,5]:  # i : 1, 3, 5
+    hap += i
+print(hap)
+
+
+def myRange2(start, end, hop = 1):
+    retVal = start
+
+    while retVal <= end:
+        #yield retVal
+        #retrun retVal ?? # 중간에 계산결과를 출력 또는 처리
+        yield retVal
+        print(retVal)
+        retVal += hop
+
+myRange2(1,5,3)
+a = myRange2(1,5,3)
+print(a)
