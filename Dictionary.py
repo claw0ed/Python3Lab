@@ -79,4 +79,5 @@ print(book.items()) # 모든 항목을 튜플로 출력
 items = book.items() # 모든 키:값을 튜플-리스트로 출력
 print( list(items) )
 
-
+abc = [1,2,3]
+print(abc.reverde())
