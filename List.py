@@ -287,10 +287,18 @@ def myRange2(start, end, hop = 1):
     while retVal <= end:
         #yield retVal
         #retrun retVal ?? # 중간에 계산결과를 출력 또는 처리
-        yield retVal
+        yield retVal # 실행중에 계산된 값은 generator 타입에 저장해 둠
         print(retVal)
         retVal += hop
 
 myRange2(1,5,3)
-a = myRange2(1,5,3)
+a = myRange2(1,5,3) # yield 로 넘긴 데이터는 순환형식의 generator 타입 생성
 print(a)
+
+print( next(a) ) # generator 타입에 저장된 값은 iterator 형식으로 다룰 수 있음
+                    # iterator 는 리스트에 저장된 객체를 순환하며 하나씩 꺼내 사용하는 자료구조
+print( next(a) )
+print( next(a) )
+
+for i in a:    # generator 타입에 저장된 값은 
+    print(i)   # for 문으로도 출력 가능
